@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.vanlang.lab07a_room_2474802010092.app-mergeDebugResources-2:/layout/activity_main.xml",
+        "source": "com.vanlang.lab07a_room_2474802010092.app-main-5:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.vanlang.lab07a_room_2474802010092.app-mergeDebugResources-2:/layout/activity_profile.xml",
+        "source": "com.vanlang.lab07a_room_2474802010092.app-main-5:/layout/activity_profile.xml"
+    }
+]

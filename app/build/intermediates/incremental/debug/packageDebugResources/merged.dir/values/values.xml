@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Lab07A_Room_2474802010092</string>
+    <style name="Base.Theme.Lab07A_Room_2474802010092" parent="Theme.Material3.DayNight.NoActionBar">
+        
+    </style>
+    <style name="Theme.Lab07A_Room_2474802010092" parent="Base.Theme.Lab07A_Room_2474802010092"/>
+</resources>

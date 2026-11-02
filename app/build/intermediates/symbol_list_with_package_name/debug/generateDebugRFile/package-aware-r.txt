@@ -1,0 +1,26 @@
+com.vanlang.lab07a_room_2474802010092
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id btnDelete
+id btnInsert
+id btnLogout
+id btnSearch
+id etProductName
+id etProductPrice
+id etProductQuantity
+id etSearchId
+id lvSkills
+id tvProductList
+id tvProfileHeader
+id tvUserEmail
+layout activity_main
+layout activity_profile
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base_Theme_Lab07A_Room_2474802010092
+style Theme_Lab07A_Room_2474802010092
+xml backup_rules
+xml data_extraction_rules
