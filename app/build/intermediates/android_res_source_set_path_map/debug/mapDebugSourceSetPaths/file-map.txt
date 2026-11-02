@@ -1,8 +1,0 @@
-com.vanlang.lab07a_room_2474802010092.app-pngs-0 C:\Users\Acer\.gemini\antigravity\scratch\Lab07A_Room_2474802010092\app\build\generated\res\pngs\debug
-com.vanlang.lab07a_room_2474802010092.app-updated_navigation_xml-1 C:\Users\Acer\.gemini\antigravity\scratch\Lab07A_Room_2474802010092\app\build\generated\updated_navigation_xml\debug
-com.vanlang.lab07a_room_2474802010092.app-packageDebugResources-2 C:\Users\Acer\.gemini\antigravity\scratch\Lab07A_Room_2474802010092\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.vanlang.lab07a_room_2474802010092.app-packageDebugResources-3 C:\Users\Acer\.gemini\antigravity\scratch\Lab07A_Room_2474802010092\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.vanlang.lab07a_room_2474802010092.app-debug-4 C:\Users\Acer\.gemini\antigravity\scratch\Lab07A_Room_2474802010092\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.vanlang.lab07a_room_2474802010092.app-debug-5 C:\Users\Acer\.gemini\antigravity\scratch\Lab07A_Room_2474802010092\app\src\debug\res
-com.vanlang.lab07a_room_2474802010092.app-main-6 C:\Users\Acer\.gemini\antigravity\scratch\Lab07A_Room_2474802010092\app\src\main\res
-gradleHome-0 C:\Users\Acer\.gradle
