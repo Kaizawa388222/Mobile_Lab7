@@ -1,4 +1,4 @@
-package com.vanlang.lab07a_room_2474802010092.data.local
+package edu.vlu.week07.productroom.data.local
 
 import android.content.Context
 import androidx.room.Database
@@ -7,22 +7,21 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [ProductEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-
     abstract fun productDao(): ProductDao
 
     companion object {
+        private const val DATABASE_NAME = "product_database.db"
+
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context): AppDatabase {
+        fun getInstance(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
+                INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "product_database"
-                ).build()
-                INSTANCE = instance
-                instance
+                    DATABASE_NAME
+                ).build().also { INSTANCE = it }
             }
         }
     }

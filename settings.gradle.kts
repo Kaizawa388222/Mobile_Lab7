@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Lab07A_Room_2474802010092"
+rootProject.name = "ProductRoomApp"
 include(":app")

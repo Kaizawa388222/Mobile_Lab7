@@ -1,105 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
+    <!-- Guideline Split the screen into 2 halves left/right -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LAB 07A: ROOM ENTITY &amp; DAO"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="16dp" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <!-- BARRIER: Barrier ensures that etPrice and etQuantity do not override etName -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="etName" />
 
     <EditText
-        android:id="@+id/etProductName"
-        android:layout_width="match_parent"
+        android:id="@+id/etName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Tên sản phẩm (product_name)"
-        android:inputType="text" />
+        android:hint="Tên sản phẩm"
+        android:inputType="text"
+        android:importantForAutofill="no"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etProductPrice"
-        android:layout_width="match_parent"
+        android:id="@+id/etPrice"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Giá sản phẩm (product_price)"
-        android:inputType="numberDecimal" />
+        android:layout_marginStart="8dp"
+        android:hint="Giá"
+        android:inputType="numberDecimal"
+        android:importantForAutofill="no"
+        app:layout_constraintEnd_toStartOf="@+id/etQuantity"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/etName" />
 
     <EditText
-        android:id="@+id/etProductQuantity"
-        android:layout_width="match_parent"
+        android:id="@+id/etQuantity"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:hint="Số lượng (stock_quantity)"
-        android:inputType="number" />
+        android:layout_marginStart="8dp"
+        android:hint="SL"
+        android:inputType="number"
+        android:importantForAutofill="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etName" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="16dp"
+        android:text="Thêm sản phẩm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrierName" />
 
-        <Button
-            android:id="@+id/btnInsert"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Thêm (Insert)" />
-
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="Xóa SP mới nhất" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnClearAll"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <EditText
-            android:id="@+id/etSearchId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Nhập ID cần tìm"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/btnSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Tìm theo ID" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Danh sách sản phẩm (LiveData reactive stream):"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginTop="8dp"
-        android:background="#F0F0F0"
-        android:padding="8dp">
+        android:text="Xóa tất cả"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
 
-        <TextView
-            android:id="@+id/tvProductList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="Chưa có dữ liệu..." />
-    </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnClearAll" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
